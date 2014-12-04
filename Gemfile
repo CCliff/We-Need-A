@@ -7,3 +7,8 @@ gem 'rake'
 gem 'json'
 gem 'pg'
 gem 'bcrypt'
+gem 'env.rb', '~> 0.0.7'
+gem 'omniauth-facebook'
+
+gem 'faker'
+gem 'pry'

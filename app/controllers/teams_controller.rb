@@ -1,8 +1,8 @@
-class UsersController < ApplicationController
+class TeamsController < ApplicationController
 
   get '/' do
     content_type :json
-    User.sport(params['sport']).location(params['locations']).to_json
+    Team.all.to_json
   end
 
   get '/new' do
@@ -10,26 +10,26 @@ class UsersController < ApplicationController
   end
 
   post '/new' do
-    User.create(params[:user])
+    Team.create(params[:user])
   end
 
   get '/:id' do
     content_type:json
-    User.find(params[:id]).to_json
+    Team.find(params[:id]).to_json
   end
 
   get '/:id/edit' do
     content_type:json
-    User.find(params[:id]).to_json
+    Team.find(params[:id]).to_json
   end
 
   patch '/:id/edit' do
-    user = User.find(params[:id])
+    user = Team.find(params[:id])
     user.update(params[:user])
   end
 
   delete '/:id' do
-    user = User.find(params[:id])
+    user = Team.find(params[:id])
     user.destroy
   end
 
