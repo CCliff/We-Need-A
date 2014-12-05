@@ -1,7 +1,9 @@
 class WelcomeController < ApplicationController
 
-  get '/' do
 
+  get '/' do
+    binding.pry
+    erb :index
   end
 
   get '/console' do

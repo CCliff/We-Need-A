@@ -21,8 +21,10 @@ require './app/controllers/users_controller'
 require './app/controllers/games_controller'
 require './app/controllers/welcome_controller'
 require './app/controllers/teams_controller'
+require './app/controllers/sessions_controller'
 
 map('/api/users'){run UsersController}
 map('/api/games'){run GamesController}
 map('/api/teams'){run TeamsController}
+map('/api/sessions'){run SessionsController}
 map('/'){run WelcomeController}
