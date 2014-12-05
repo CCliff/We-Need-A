@@ -7,7 +7,7 @@ gem 'rake'
 gem 'json'
 gem 'pg'
 gem 'bcrypt'
-gem 'env.rb', '~> 0.0.7'
+gem 'dotenv'
 
 gem 'faker'
 gem 'pry'
