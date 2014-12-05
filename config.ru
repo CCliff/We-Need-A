@@ -10,12 +10,6 @@ Dir[ROOT_PATH+"/app/models/*.rb"].each do |file|
   puts "requiring #{file}"
 end
 
-use Rack::Session::Cookie, :secret => 'wnag01221989'
-
-use OmniAuth::Builder do
-  provider :facebook, ENV['APP_ID'], ENV['APP_SECRET']
-end
-
 require './app/controllers/application_controller'
 require './app/controllers/users_controller'
 require './app/controllers/games_controller'
