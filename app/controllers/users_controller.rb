@@ -10,7 +10,9 @@ class UsersController < ApplicationController
   end
 
   post '/new' do
-    User.create(params[:user])
+    user = User.new(username: params[:username])
+    user.password = params[:password]
+    user.save!
   end
 
   get '/:id' do
