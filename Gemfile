@@ -8,6 +8,7 @@ gem 'json'
 gem 'pg'
 gem 'bcrypt'
 gem 'dotenv'
+gem 'aws-sdk'
 
 gem 'faker'
 gem 'pry'

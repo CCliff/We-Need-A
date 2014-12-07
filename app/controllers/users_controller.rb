@@ -15,6 +15,17 @@ class UsersController < ApplicationController
     user.save!
   end
 
+  post '/image/new' do
+    user = User.find_by(current_user)
+    s3 = AWS::S3.new
+    # file =
+    key = File.basename(file)
+
+    s3.buckets['weneedauserpicture'].objects[key].write(:file => file)
+
+    user.image = "https://s3-us-west-2.amazonaws.com/weneedauserpicture/#{key}"
+  end
+
   get '/:id' do
     content_type:json
     User.find(params[:id]).to_json
@@ -36,3 +47,10 @@ class UsersController < ApplicationController
   end
 
 end
+
+# s3 = AWS::S3.new
+
+
+# key = File.basename('/home/ccliff/Downloads/538581_10151221673158413_985166129_n.jpg')
+
+# s3.buckets['weneedauserpicture'].objects[key].write(:file => '/home/ccliff/Downloads/538581_10151221673158413_985166129_n.jpg')
