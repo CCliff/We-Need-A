@@ -1,7 +1,9 @@
 require 'bundler'
 Bundler.require
 
-require './connection'
+# require './connection'
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
+
 require 'dotenv'
 Dotenv.load
 
