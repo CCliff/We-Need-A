@@ -2,7 +2,7 @@ require 'sinatra/base'
 
 class ApplicationController < Sinatra::Base
 
-  after { ActiveRecord::Base.connection.close }
+  register Sinatra::ActiveRecordExtension
 
   enable :sessions
 
