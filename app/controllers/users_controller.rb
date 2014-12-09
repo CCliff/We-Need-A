@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   get '/' do
     content_type :json
+    # procs to create a custom WHERE clause
     User.sport(params['sport']).location(params['locations']).to_json
   end
 
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
   post '/image/new' do
     user = User.find_by(current_user)
     s3 = AWS::S3.new
-    # file =
+    # file = need a way to get the file
     key = File.basename(file)
 
     s3.buckets['weneedauserpicture'].objects[key].write(:file => file)

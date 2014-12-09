@@ -5,6 +5,8 @@ class Game < ActiveRecord::Base
   has_many :requests
   has_many :players, through: :requests
 
+  #these procs allow one, many, or nil values to be entered to create a WHERE clause
+  # Procs were chosen over lambdas to allow the nil value
   scope :location, proc { |location|
     location ? where(location: location) : all
   }

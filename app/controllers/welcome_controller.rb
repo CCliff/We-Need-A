@@ -7,6 +7,7 @@ class WelcomeController < ApplicationController
   # end
 
   get '/console' do
+    # debugging purposes
     binding.pry
   end
 
