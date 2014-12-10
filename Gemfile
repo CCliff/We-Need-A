@@ -9,7 +9,7 @@ gem 'pg'
 gem 'bcrypt'
 gem 'dotenv'
 gem 'aws-sdk'
-gem 'rack-cors'
+gem 'rack-cors', :require => 'rack/cors'
 
 gem 'faker'
 gem 'pry'
