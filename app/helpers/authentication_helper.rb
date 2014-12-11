@@ -10,7 +10,7 @@ module Sinatra
     end
 
     def authenticate!
-      redirect '/' unless current_user
+      error 401 unless current_user
     end
   end
   helpers AuthenticationHelper

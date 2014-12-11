@@ -1,16 +1,16 @@
 class SessionsController < ApplicationController
 
-  post '/login' do
+  post '/new' do
     user = User.find_by(username: params[:username])
     if user && user.password == params[:password]
       session[:current_user] = user.id
-      true.to_json
+      {userId: user.id}.to_json
     else
       false.to_json
     end
   end
 
-  post '/logout' do
+  post '/delete' do
     session[:current_user] = nil
   end
 

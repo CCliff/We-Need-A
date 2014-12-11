@@ -8,15 +8,15 @@ use Rack::Cors do
   # allow all origins in development
   allow do
     origins '*'
-    resource '*', 
-        :headers => :any, 
+    resource '*',
+        :headers => :any,
         :methods => [:get, :post, :delete, :put, :options]
   end
 end
 
 # database connections
-# require './connection'
-ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
+require './connection'
+# ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 
 # for environmental variable storage
 require 'dotenv'
@@ -50,5 +50,5 @@ require './app/controllers/sessions_controller'
 map('/api/users'){run UsersController}
 map('/api/games'){run GamesController}
 map('/api/teams'){run TeamsController}
-map('/api/sessions'){run SessionsController}
+map('/sessions'){run SessionsController}
 map('/'){run WelcomeController}

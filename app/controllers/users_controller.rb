@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   get '/' do
     content_type :json
     # procs to create a custom WHERE clause
